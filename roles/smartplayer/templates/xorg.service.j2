@@ -1,0 +1,15 @@
+[Unit]
+After=network.target
+Description=Xorg Server
+
+[Service]
+ExecStartPre=/bin/sleep 5
+ExecStartPost=/bin/sleep 3
+ExecStart=/usr/bin/Xorg -nolisten tcp -nocursor -br
+User=root
+TimeoutStopSec=1
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

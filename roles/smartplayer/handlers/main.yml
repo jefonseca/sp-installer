@@ -1,0 +1,8 @@
+---
+- name: "Manage services"
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items: "{{ manageservices }}"
+  ignore_errors: yes

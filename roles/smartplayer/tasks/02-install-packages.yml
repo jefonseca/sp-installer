@@ -1,0 +1,6 @@
+---
+- name: "{{ actiondesc }}"
+  apt: 
+    name: "{{ packages }}"
+    state: "{{ packagesstate }}"
+    purge: yes

@@ -1,0 +1,13 @@
+---
+## Update OS
+- include: 01-update-os.yml
+
+## Packages
+- include: 02-install-packages.yml packages={{ toinstall }} actiondesc="Install packages" packagesstate=present
+# - include: 02-install-packages.yml packages={{ toremove }} actiondesc="Remove packages" packagesstate=absent
+
+## Install SmartPlayer deb package
+- include: 03-install-deb-package.yml
+
+## Enable services
+- include: 04-services.yml

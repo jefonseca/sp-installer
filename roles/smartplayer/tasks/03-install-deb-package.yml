@@ -1,0 +1,10 @@
+---
+- name: "Download SmartPlayer deb package"
+  get_url:
+    url: "{{ smdownloadurl }}"
+    dest: "{{ smdownloadurldest }}"
+    mode: '0440'
+
+- name: "Install SmartPlayer package"
+  apt: 
+    deb: "{{ smdownloadurldest }}"

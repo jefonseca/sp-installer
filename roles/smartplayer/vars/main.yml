@@ -1,0 +1,34 @@
+---
+useuser: pi
+updateos: false
+##### PACKAGES #####
+toinstall:
+  - alsa-utils
+  - xserver-xorg
+  - x11-xserver-utils
+  - x11-utils
+  - vlc
+  # Future function to turn off the screen?
+  - cec-utils
+
+# toremove: 
+#   - noneforthemoment
+
+smdownloadurl: "https://hb.bizmrg.com/distributions/Raspberry%20Pi/X64/api.smartplayer.org/default%20(ds)/SmartPlayer_api_1.66.1.deb"
+smdownloadurldest: "/tmp/package.deb"
+
+templatestoapply:
+  # Services
+  - srctpl: "xorg.service.j2"
+    desttpl: "/etc/systemd/system/xorg.service"
+    modetpl: "0644"
+    overwrite: "yes"
+
+  - srctpl: "smartplayer.service.j2"
+    desttpl: "/etc/systemd/system/smartplayer.service"
+    modetpl: "0644"
+    overwrite: "yes"
+
+manageservices:
+  - xorg.service
+  - smartplayer.service

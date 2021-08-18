@@ -1,0 +1,12 @@
+---
+- name: "System services"
+  template: 
+    src: "{{ item.srctpl }}"
+    dest: "{{ item.desttpl }}"
+    owner: "root"
+    group: "root" 
+    mode: "{{ item.modetpl }}"
+    force: "{{ item.overwrite }}"
+  with_items: "{{ templatestoapply }}"
+  notify:
+  - Manage services

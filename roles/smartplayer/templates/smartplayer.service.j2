@@ -1,0 +1,22 @@
+[Unit]
+Description=SmartPlayer Service
+After=xorg.service
+Requires=xorg.service
+
+[Service]
+Environment=DISPLAY=:0.0
+ExecStart=/usr/bin/SmartPlayer/SmartPlayer.sh
+User={{ useuser }}
+
+# Wait to startup (this is really necessary?)
+ExecStartPost=/bin/sleep 2
+
+# Don't wait to stop the service
+TimeoutStopSec=1
+
+Restart=on-failure
+# Delay in case of failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
