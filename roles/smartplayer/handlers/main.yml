@@ -4,5 +4,6 @@
     name: "{{ item }}"
     state: restarted
     enabled: yes
+    daemon_reload: yes
   with_items: "{{ manageservices }}"
   ignore_errors: yes
