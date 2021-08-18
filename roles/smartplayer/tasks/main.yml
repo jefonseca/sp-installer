@@ -11,3 +11,6 @@
 
 ## Enable services
 - include: 04-services.yml
+
+## OS configuration
+- include: 05-os-configuration.yml
