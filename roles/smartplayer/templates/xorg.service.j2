@@ -5,7 +5,7 @@ Description=Xorg Server
 [Service]
 ExecStartPre=/bin/sleep 5
 ExecStartPost=/bin/sleep 3
-ExecStart=/usr/bin/Xorg -nolisten tcp -nocursor -br
+ExecStart=/usr/bin/Xorg -nolisten tcp -br
 User=root
 TimeoutStopSec=1
 Restart=on-failure

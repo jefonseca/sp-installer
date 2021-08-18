@@ -1,4 +1,6 @@
 ---
+smdownloadurl: "https://hb.bizmrg.com/distributions/Raspberry%20Pi/X64/api.smartplayer.org/default%20(ds)/SmartPlayer_api_1.66.1.deb"
+smdownloadurldest: "/tmp/package.deb"
 useuser: pi
 updateos: false
 ##### PACKAGES #####
@@ -10,12 +12,8 @@ toinstall:
   - vlc
   # Future function to turn off the screen?
   - cec-utils
-
 # toremove: 
 #   - noneforthemoment
-
-smdownloadurl: "https://hb.bizmrg.com/distributions/Raspberry%20Pi/X64/api.smartplayer.org/default%20(ds)/SmartPlayer_api_1.66.1.deb"
-smdownloadurldest: "/tmp/package.deb"
 
 templatestoapply:
   # Services
