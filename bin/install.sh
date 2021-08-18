@@ -1,5 +1,10 @@
 #!/bin/bash
-## URL
+# Do not run it with the root user
+if [[ $EUID -eq 0 ]]; then
+   print_error "This script must not be run as root"
+   exit 1
+fi
+
 installer_repository="https://github.com/jefonseca/sp-installer.git"
 installer_repository_directory="sp-installer"
 
@@ -41,5 +46,5 @@ else
 fi
 
 ## Run playbook
-ANSIBLE_LOCALHOST_WARNING=false ansible-playbook $installer_repository_directory/install.yml
+ANSIBLE_LOCALHOST_WARNING=false ansible-playbook $installer_repository_directory	/install.yml
 check_result $? "Playbook failed"
