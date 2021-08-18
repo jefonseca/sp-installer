@@ -1,9 +1,4 @@
 #!/bin/bash
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root"
-   exit 1
-fi
-
 ## URL
 installer_repository="https://github.com/jefonseca/sp-installer.git"
 installer_repository_directory="sp-installer"
@@ -18,7 +13,7 @@ check_result () {
 ## Install ansible if needed
 dpkg -s ansible >/dev/null 2>&1
 if [[ $? -ne 0 ]]; then
-	apt update ; apt -y install ansible
+	sudo apt update ; sudo apt -y install ansible
 	check_result $? "Cannot install ansible"
 fi
 if [[ ! $(which ansible-playbook) ]]; then
@@ -29,7 +24,7 @@ fi
 ## Install git if needed
 dpkg -s git >/dev/null 2>&1
 if [[ $? -ne 0 ]]; then
-	apt update ; apt -y install git
+	sudo apt update ; sudo apt -y install git
 	check_result $? "Cannot install git"
 fi
 if [[ ! $(which git) ]]; then
@@ -46,5 +41,5 @@ else
 fi
 
 ## Run playbook
-ANSIBLE_LOCALHOST_WARNING=false ansible-playbook installer_repository_directory/install.yml
+ANSIBLE_LOCALHOST_WARNING=false ansible-playbook $installer_repository_directory/install.yml
 check_result $? "Playbook failed"
