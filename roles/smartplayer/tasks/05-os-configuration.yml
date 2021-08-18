@@ -1,0 +1,13 @@
+---
+- name: Write boot options
+  lineinfile: 
+    dest: /boot/config.txt
+    regexp: "{{ item.kfileregeexp }}"
+    line: "{{ item.kfileline }}"
+  with_items:
+    - kfileregeexp: "^gpu_mem"
+      kfileline: 'gpu_mem=384'
+    - kfileregeexp: "^disable_overscan"
+      kfileline: 'disable_overscan=1'
+  notify:
+  - Suggest reboot
