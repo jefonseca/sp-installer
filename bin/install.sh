@@ -46,5 +46,5 @@ else
 fi
 
 ## Run playbook
-ANSIBLE_LOCALHOST_WARNING=false ansible-playbook $installer_repository_directory	/install.yml
+ANSIBLE_LOCALHOST_WARNING=false ansible-playbook $installer_repository_directory/install.yml
 check_result $? "Playbook failed"
