@@ -8,3 +8,5 @@
 - name: "Install SmartPlayer package"
   apt: 
     deb: "{{ smdownloadurldest }}"
+  notify:
+  - Manage services

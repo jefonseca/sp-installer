@@ -5,6 +5,11 @@ useuser: pi
 updateos: false
 ##### PACKAGES #####
 toinstall:
+  - qtav-players
+  - libxslt1.1
+  - libxss1
+  - libwebpdemux2
+  - libnss3
   - alsa-utils
   - xserver-xorg
   - x11-xserver-utils
